@@ -5,12 +5,15 @@ export default function Measurement({ distance, id, name, onDelete, onEdit }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{`${name} - ${distance}km`}</Text>
-      <Button
-        style={styles.button}
-        title="Delete"
-        onPress={() => onDelete(id)}
-      />
-      <Button style={styles.button} title="Edit" onPress={() => onEdit(id)} />
+      <View style={styles.actions}>
+        <Button
+          style={styles.button}
+          title="Delete"
+          onPress={() => onDelete(id)}
+        />
+        <View />
+        <Button style={styles.button} title="Edit" onPress={() => onEdit(id)} />
+      </View>
     </View>
   );
 }
@@ -19,11 +22,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 5,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 20,
+  },
+  actions: {
+    width: 120,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   text: {
     flexDirection: "row",

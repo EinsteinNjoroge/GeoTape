@@ -93,7 +93,9 @@ export default function MeasurementScreen({ navigation, ...props }) {
         <Text>Point A</Text>
         <Button
           onPress={() => getGpsCoordinates(setPointA)}
-          title={pointA ? `${pointA[0]} ${pointA[1]}` : "Record GPS location"}
+          title={
+            pointA ? `${pointA[0]}N, ${pointA[1]}W` : "Record GPS location"
+          }
         />
       </View>
 
@@ -101,7 +103,9 @@ export default function MeasurementScreen({ navigation, ...props }) {
         <Text>Point B</Text>
         <Button
           onPress={() => getGpsCoordinates(setpointB)}
-          title={pointB ? `${pointB[0]}, ${pointB[1]}` : "Record GPS location"}
+          title={
+            pointB ? `${pointB[0]}N, ${pointB[1]}W` : "Record GPS location"
+          }
         />
       </View>
 
@@ -144,15 +148,17 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: "#FFF",
-    borderRadius: 60,
+    borderRadius: 5,
     borderColor: "#C0C0C0",
     borderWidth: 1,
-    width: 250,
+    width: "60%",
   },
   locationView: {
-    width: "80%",
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 });

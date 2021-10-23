@@ -47,8 +47,9 @@ export default function MainScreen({ navigation }) {
           ))}
         </View>
       )}
-      <View style={styles.button}>
+      <View style={styles.saveBtnView}>
         <Button
+          style={styles.button}
           title="Start New Measurement"
           onPress={navigateToMeasurementScreen}
         />
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
   },
-  button: {
+  saveBtnView: {
     borderRadius: 5,
     position: "absolute",
     bottom: 60,

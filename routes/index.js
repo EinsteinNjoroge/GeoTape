@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="SplashScreen" component={SplashScreen} />
       <Stack.Screen name="MainScreen" component={MainScreen} />
       <Stack.Screen name="MeasurementScreen" component={MeasurementScreen} />
