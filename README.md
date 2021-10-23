@@ -1,6 +1,6 @@
 # GeoTape
 
-The Geotape application is designed to help you calculate the length in kilometers of your rooms or houses. This app is primarily designed to work on **Android** devices but it can also run on IOS devices albeit a diminished UI/UX.
+The Geotape application is designed to help you calculate the length of your rooms or houses. This app is primarily designed to work on **Android** devices but it can also run it on IOS devices albeit a diminished UI/UX.
 
 ## ⚡ Tools
 
