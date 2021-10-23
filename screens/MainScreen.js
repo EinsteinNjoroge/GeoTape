@@ -34,15 +34,18 @@ export default function MainScreen({ navigation }) {
           <Text>Click "Start New Measurement" to begin.</Text>
         </>
       ) : (
-          {measurements.map(({ id, name }) => (
+        <View style={styles.measurements}>
+          {measurements.map(({ id, name, distance }) => (
             <Measurement
               key={id}
               onDelete={handleDeleteMeasurement}
               onEdit={handleEditMeasurement}
               id={id}
               name={name}
+              distance={distance}
             />
           ))}
+        </View>
       )}
       <View style={styles.button}>
         <Button
@@ -56,14 +59,19 @@ export default function MainScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#E8EAED",
     alignItems: "center",
     justifyContent: "center",
+    flex: 1,
   },
   button: {
     borderRadius: 5,
     position: "absolute",
     bottom: 60,
+  },
+  measurements: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    width: "100%",
   },
 });

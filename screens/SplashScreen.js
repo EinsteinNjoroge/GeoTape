@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   tinyLogo: {
-    height: 50,
+    width: 300,
   },
 });

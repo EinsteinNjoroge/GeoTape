@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 
-export default function Measurement({ id, name, onDelete, onEdit }) {
+export default function Measurement({ distance, id, name, onDelete, onEdit }) {
   return (
     <View style={styles.container}>
-      <Text>{name}</Text>
+      <Text style={styles.text}>{`${name} - ${distance}km`}</Text>
       <Button
         style={styles.button}
         title="Delete"
@@ -17,8 +17,22 @@ export default function Measurement({ id, name, onDelete, onEdit }) {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: "#000",
-    borderWidth: 2,
+    backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 20,
   },
-  button: {},
+  text: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    maxWidth: "80%",
+  },
+  button: {
+    width: 24,
+    height: 24,
+  },
 });

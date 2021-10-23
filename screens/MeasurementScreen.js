@@ -89,19 +89,21 @@ export default function MeasurementScreen({ navigation, ...props }) {
         />
       </KeyboardAvoidingView>
 
-      <Text>Point A</Text>
+      <View style={styles.locationView}>
+        <Text>Point A</Text>
+        <Button
+          onPress={() => getGpsCoordinates(setPointA)}
+          title={pointA ? `${pointA[0]} ${pointA[1]}` : "Record GPS location"}
+        />
+      </View>
 
-      <Button
-        onPress={() => getGpsCoordinates(setPointA)}
-        title={pointA ? `${pointA[0]} ${pointA[1]}` : "Record GPS location"}
-      />
-
-      <Text>Point B</Text>
-
-      <Button
-        onPress={() => getGpsCoordinates(setpointB)}
-        title={pointB ? `${pointB[0]}, ${pointB[1]}` : "Record GPS location"}
-      />
+      <View style={styles.locationView}>
+        <Text>Point B</Text>
+        <Button
+          onPress={() => getGpsCoordinates(setpointB)}
+          title={pointB ? `${pointB[0]}, ${pointB[1]}` : "Record GPS location"}
+        />
+      </View>
 
       <View style={styles.button}>
         <Button
@@ -117,13 +119,14 @@ export default function MeasurementScreen({ navigation, ...props }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#E8EAED",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
     fontWeight: "bold",
     fontSize: 24,
+    paddingBottom: 40,
   },
   button: {
     width: 250,
@@ -131,5 +134,25 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 60,
   },
-  nameInput: {},
+  nameInputView: {
+    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  nameInput: {
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    backgroundColor: "#FFF",
+    borderRadius: 60,
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
+    width: 250,
+  },
+  locationView: {
+    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
 });

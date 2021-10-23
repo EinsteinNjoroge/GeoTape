@@ -1,4 +1,4 @@
-// Calculate distance in meters between two coordianntes
+// Calculate distance in KiloMetres between two coordianntes
 export const calculateDistance = (pointA, pointB) => {
   const [latA, lonA] = pointA;
   const [latB, lonB] = pointB;
@@ -14,6 +14,6 @@ export const calculateDistance = (pointA, pointB) => {
     Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  const d = R * c; // in metres
+  const d = (R * c) / 1000; // in KiloMetres
   return d;
 };
