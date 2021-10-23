@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StyleSheet, Text, View, Button } from "react-native";
 import Measurement from "../components/Measurement";
