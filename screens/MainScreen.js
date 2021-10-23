@@ -1,39 +1,48 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { StyleSheet, Text, View, Button } from "react-native";
 import Measurement from "../components/Measurement";
-
-const Measurements = [
-  // {
-  //   name: 'Measurement 1',
-  //   xCoordinante: 10,
-  //   yCoordinnate: 50,
-  // }, {
-  //   name: 'Measurement 2',
-  //   xCoordinante: 40,
-  //   yCoordinnate: 50,
-  // }
-];
+import actionTypes from "../actionTypes";
 
 export default function MainScreen({ navigation }) {
-  navigateToMeasurementScreen = () => {
+  const measurements = useSelector((state) => state) || [];
+  const dispatch = useDispatch();
+
+  const navigateToMeasurementScreen = () => {
     navigation.navigate("MeasurementScreen");
+  };
+
+  handleDeleteMeasurement = (id) => {
+    const action = {
+      type: actionTypes.DELETE_MEASUREMENT,
+      id,
+    };
+    dispatch(action);
+  };
+
+  handleEditMeasurement = (id) => {
+    navigation.navigate("MeasurementScreen", { id });
   };
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {!Measurements.length ? (
+      {!measurements.length ? (
         <>
           <Text>You have no measurements!</Text>
           <Text>Click "Start New Measurement" to begin.</Text>
         </>
       ) : (
-        <View style={styles.container}>
-          {Measurements.map((measurement) => (
-            <Measurement {...measurement} />
+          {measurements.map(({ id, name }) => (
+            <Measurement
+              key={id}
+              onDelete={handleDeleteMeasurement}
+              onEdit={handleEditMeasurement}
+              id={id}
+              name={name}
+            />
           ))}
-        </View>
       )}
       <View style={styles.button}>
         <Button
